@@ -267,7 +267,7 @@ else
 #    fi
 fi
 cd /usr/local
-git clone https://github.com/shadowsocksr-backup/shadowsocksr.git
+git clone https://github.com/ToyoDAdoubiBackup/shadowsocksr.git
 cd ./shadowsocksr
 git checkout manyuser
 git pull
