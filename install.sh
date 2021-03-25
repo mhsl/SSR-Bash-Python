@@ -373,13 +373,12 @@ if [[ -d /usr/local/SSR-Bash-Python ]];then
 else
     cd /usr/local
     git clone https://github.com/mhsl/SSR-Bash-Python.git
-    cd AR-B-P-B
+    cd SSR-Bash-Python
     git checkout master
     if [[ $1 == "develop" ]];then
         git checkout develop
     fi
     cd ..
-    mv AR-B-P-B SSR-Bash-Python
     bashinstall="no"
 fi
 cd /usr/local/shadowsocksr
