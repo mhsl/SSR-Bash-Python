@@ -194,7 +194,6 @@ echo "开始部署"
 trap 'StopInstall 2>/dev/null && exit 0' 2
 sleep 2s
 if [[ ${OS} == Ubuntu ]];then
-	apt-get update
 	apt-get install python -y
 	apt-get install python-pip -y
 	apt-get install git -y
