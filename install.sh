@@ -33,7 +33,7 @@ elif [ -n "$(grep Deepin /etc/issue)" -o "$(lsb_release -is 2>/dev/null)" == 'De
     Debian_version=$(lsb_release -sr | awk -F. '{print $1}')
 elif [ -n "$(grep Ubuntu /etc/issue)" -o "$(lsb_release -is 2>/dev/null)" == 'Ubuntu' -o -n "$(grep 'Linux Mint' /etc/issue)" ];then
     OS=Ubuntu
-    [ ! -e "$(which lsb_release)" ] && {  apt-get -y install lsb-release; clear; }
+    [ ! -e "$(which lsb_release)" ] && { apt-get -y update; apt-get -y install lsb-release; clear; }
     Ubuntu_version=$(lsb_release -sr | awk -F. '{print $1}')
     [ -n "$(grep 'Linux Mint 18' /etc/issue)" ] && Ubuntu_version=16
 elif [ ! -z "$(grep 'Arch Linux' /etc/issue)" ];then
@@ -194,6 +194,7 @@ echo "开始部署"
 trap 'StopInstall 2>/dev/null && exit 0' 2
 sleep 2s
 if [[ ${OS} == Ubuntu ]];then
+	apt-get update
 	apt-get install python -y
 	apt-get install python-pip -y
 	apt-get install git -y
@@ -238,10 +239,10 @@ if [[ $? != 0 ]];then
     echo "安装失败，请稍候重试！"
     exit 1 
 fi
-if [[ ! -e /usr/share/dict/words ]];then
-    cd /usr/share/dict
-    wget -q https://down.fdos.me/words
-fi
+#if [[ ! -e /usr/share/dict/words ]];then
+#    cd /usr/share/dict
+#    wget -q https://down.fdos.me/words
+#fi
 #Install Libsodium
 libsodiumfilea="/usr/local/lib/libsodium.so"
 libsodiumfileb="/usr/lib/libsodium.so"
