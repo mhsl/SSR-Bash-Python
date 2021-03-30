@@ -361,7 +361,6 @@ if [[ -d /usr/local/SSR-Bash-Python ]];then
         rm -rf /usr/local/SSR-Bash-Python
         cd /usr/local
         git clone https://github.com/mhsl/SSR-Bash-Python.git
-        mv AR-B-P-B SSR-Bash-Python
     fi
     cd /usr/local/SSR-Bash-Python
     git checkout master
