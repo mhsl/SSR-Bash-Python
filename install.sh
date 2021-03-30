@@ -33,7 +33,7 @@ elif [ -n "$(grep Deepin /etc/issue)" -o "$(lsb_release -is 2>/dev/null)" == 'De
     Debian_version=$(lsb_release -sr | awk -F. '{print $1}')
 elif [ -n "$(grep Ubuntu /etc/issue)" -o "$(lsb_release -is 2>/dev/null)" == 'Ubuntu' -o -n "$(grep 'Linux Mint' /etc/issue)" ];then
     OS=Ubuntu
-    [ ! -e "$(which lsb_release)" ] && { apt-get -y update; apt-get -y install lsb-release; clear; }
+    [ ! -e "$(which lsb_release)" ] && {  apt-get -y install lsb-release; clear; }
     Ubuntu_version=$(lsb_release -sr | awk -F. '{print $1}')
     [ -n "$(grep 'Linux Mint 18' /etc/issue)" ] && Ubuntu_version=16
 elif [ ! -z "$(grep 'Arch Linux' /etc/issue)" ];then
